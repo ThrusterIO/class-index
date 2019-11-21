@@ -8,18 +8,6 @@
     "logs": {
         "text": "build/infection/infection.log",
         "summary": "build/infection/summary.log",
-        "perMutator": "build/infection/per-mutator.md",
-        "badge": {
-            "branch": "master"
-        }
-    },
-    "mutators": {
-        "@default": true,
-        "@function_signature": false,
-        "TrueValue": {
-            "ignore": [
-                "NameSpace\\*\\Class::method"
-            ]
-        }
+        "perMutator": "build/infection/per-mutator.md"
     }
 }

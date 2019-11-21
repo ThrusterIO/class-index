@@ -12,9 +12,7 @@ namespace Thruster\ClassIndex;
  */
 class ClassIndex
 {
-    private string $vendorAutoloadPath;
-
-    public function __construct(string $vendorAutoloadPath)
+    public function buildIndex(): void
     {
 
     }

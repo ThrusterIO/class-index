@@ -23,6 +23,7 @@ before_script:
 
 before_install:
   - pecl install xdebug
+  - echo "zend_extension=xdebug.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - travis_retry composer self-update --no-interaction
 
 install:

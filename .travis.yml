@@ -22,6 +22,7 @@ before_script:
     - chmod +x infection.phar
 
 before_install:
+  - pecl install xdebug
   - travis_retry composer self-update --no-interaction
 
 install:

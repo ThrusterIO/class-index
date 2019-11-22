@@ -18,6 +18,8 @@ class ComposerProvider
 
     private ?string $vendorDirPath = null;
 
+    private ?array $classMap = null;
+
     public function __construct(string $vendorAutoloadPath)
     {
         if (false === file_exists($vendorAutoloadPath)) {
@@ -36,6 +38,19 @@ class ComposerProvider
         $this->vendorDirPath = dirname($this->vendorAutoloadPath);
 
         return $this->vendorDirPath;
+    }
+
+    public function getClassMap(): array
+    {
+        $classMapPath = $this->getAutoloadClassMapPath();
+
+        if (file_exists($classMapPath)) {
+            $this->classMap = includeFile($classMapPath);
+        } else {
+            $this->classMap = [];
+        }
+
+        return $this->classMap;
     }
 
     public function getAutoloadClassMapPath(): string
@@ -57,4 +72,8 @@ class ComposerProvider
     {
         return $this->getVendorDirPath() . '/composer/autoload_psr4.php';
     }
+}
+
+function includeFile(string $file) {
+    include $file;
 }

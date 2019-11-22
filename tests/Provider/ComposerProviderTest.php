@@ -64,4 +64,11 @@ class ComposerProviderTest extends TestCase
             $provider->getAutoloadPsr4Path()
         );
     }
+
+    public function testGetClassMapNotExists(): void
+    {
+        $provider = new ComposerProvider(__DIR__);
+
+        $this->assertEquals([], $provider->getClassMap());
+    }
 }

@@ -30,7 +30,7 @@ install:
   - travis_retry composer update --no-interaction --prefer-dist
 
 script:
-  - composer check-style
+  - composer cs-check
   - composer test-ci
   - ./infection.phar --min-msi=48 --min-covered-msi=70 --threads=4
 
